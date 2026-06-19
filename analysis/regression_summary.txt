@@ -1,0 +1,78 @@
+MODEL 1: job_sat ~ ai_user + work_exp + C(devtype_grp), HC1 robust SE
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:                job_sat   R-squared:                       0.016
+Model:                            OLS   Adj. R-squared:                  0.016
+Method:                 Least Squares   F-statistic:                     31.90
+Date:                Fri, 19 Jun 2026   Prob (F-statistic):           6.91e-74
+Time:                        17:06:40   Log-Likelihood:                -50988.
+No. Observations:               24354   AIC:                         1.020e+05
+Df Residuals:                   24341   BIC:                         1.021e+05
+Df Model:                          12                                         
+Covariance Type:                  HC1                                         
+===================================================================================================================================
+                                                                      coef    std err          z      P>|z|      [0.025      0.975]
+-----------------------------------------------------------------------------------------------------------------------------------
+Intercept                                                           7.0874      0.118     60.312      0.000       6.857       7.318
+C(devtype_grp)[T.Architect, software or solutions]                 -0.0912      0.123     -0.742      0.458      -0.332       0.150
+C(devtype_grp)[T.Developer, back-end]                              -0.4380      0.117     -3.728      0.000      -0.668      -0.208
+C(devtype_grp)[T.Developer, desktop or enterprise applications]    -0.3520      0.126     -2.804      0.005      -0.598      -0.106
+C(devtype_grp)[T.Developer, embedded applications or devices]      -0.3363      0.131     -2.562      0.010      -0.594      -0.079
+C(devtype_grp)[T.Developer, front-end]                             -0.4238      0.126     -3.350      0.001      -0.672      -0.176
+C(devtype_grp)[T.Developer, full-stack]                            -0.2814      0.116     -2.431      0.015      -0.508      -0.054
+C(devtype_grp)[T.Developer, mobile]                                -0.2582      0.131     -1.970      0.049      -0.515      -0.001
+C(devtype_grp)[T.Other]                                            -0.1529      0.118     -1.295      0.195      -0.384       0.078
+C(devtype_grp)[T.Other (please specify):]                          -0.4074      0.161     -2.532      0.011      -0.723      -0.092
+C(devtype_grp)[T.Student]                                          -0.3496      0.189     -1.853      0.064      -0.719       0.020
+ai_user                                                             0.1643      0.034      4.828      0.000       0.098       0.231
+work_exp                                                            0.0209      0.001     15.461      0.000       0.018       0.024
+==============================================================================
+Omnibus:                     3766.042   Durbin-Watson:                   2.005
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):             6334.580
+Skew:                          -1.033   Prob(JB):                         0.00
+Kurtosis:                       4.406   Cond. No.                         577.
+==============================================================================
+
+Notes:
+[1] Standard Errors are heteroscedasticity robust (HC1)
+
+MODEL 2: job_sat ~ C(AISelect, ref=non-user) + work_exp + C(devtype_grp), HC1 robust SE
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:                job_sat   R-squared:                       0.018
+Model:                            OLS   Adj. R-squared:                  0.017
+Method:                 Least Squares   F-statistic:                     28.37
+Date:                Fri, 19 Jun 2026   Prob (F-statistic):           1.68e-80
+Time:                        17:06:40   Log-Likelihood:                -50968.
+No. Observations:               24354   AIC:                         1.020e+05
+Df Residuals:                   24338   BIC:                         1.021e+05
+Df Model:                          15                                         
+Covariance Type:                  HC1                                         
+==================================================================================================================================================================================
+                                                                                                                     coef    std err          z      P>|z|      [0.025      0.975]
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Intercept                                                                                                          7.1034      0.118     60.257      0.000       6.872       7.334
+C(aiselect_cat, Treatment(reference="No, and I don't plan to"))[T.No, but I plan to soon]                         -0.0583      0.071     -0.825      0.409      -0.197       0.080
+C(aiselect_cat, Treatment(reference="No, and I don't plan to"))[T.Yes, I use AI tools monthly or infrequently]     0.0088      0.050      0.176      0.861      -0.090       0.108
+C(aiselect_cat, Treatment(reference="No, and I don't plan to"))[T.Yes, I use AI tools weekly]                      0.0652      0.046      1.426      0.154      -0.024       0.155
+C(aiselect_cat, Treatment(reference="No, and I don't plan to"))[T.Yes, I use AI tools daily]                       0.2207      0.040      5.530      0.000       0.142       0.299
+C(devtype_grp)[T.Architect, software or solutions]                                                                -0.1040      0.123     -0.848      0.396      -0.344       0.136
+C(devtype_grp)[T.Developer, back-end]                                                                             -0.4448      0.117     -3.799      0.000      -0.674      -0.215
+C(devtype_grp)[T.Developer, desktop or enterprise applications]                                                   -0.3414      0.125     -2.726      0.006      -0.587      -0.096
+C(devtype_grp)[T.Developer, embedded applications or devices]                                                     -0.3257      0.131     -2.491      0.013      -0.582      -0.069
+C(devtype_grp)[T.Developer, front-end]                                                                            -0.4424      0.126     -3.508      0.000      -0.690      -0.195
+C(devtype_grp)[T.Developer, full-stack]                                                                           -0.2940      0.115     -2.549      0.011      -0.520      -0.068
+C(devtype_grp)[T.Developer, mobile]                                                                               -0.2725      0.131     -2.085      0.037      -0.529      -0.016
+C(devtype_grp)[T.Other]                                                                                           -0.1678      0.118     -1.427      0.154      -0.398       0.063
+C(devtype_grp)[T.Other (please specify):]                                                                         -0.4129      0.161     -2.571      0.010      -0.728      -0.098
+C(devtype_grp)[T.Student]                                                                                         -0.3471      0.188     -1.843      0.065      -0.716       0.022
+work_exp                                                                                                           0.0212      0.001     15.694      0.000       0.019       0.024
+==============================================================================
+Omnibus:                     3776.572   Durbin-Watson:                   2.005
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):             6360.888
+Skew:                          -1.034   Prob(JB):                         0.00
+Kurtosis:                       4.410   Cond. No.                         577.
+==============================================================================
+
+Notes:
+[1] Standard Errors are heteroscedasticity robust (HC1)
